@@ -1,0 +1,30 @@
+// Count the Negative Numbers in a Sorted Matrix
+class Solution {
+public:
+    int countNegatives(vector<vector<int>>& grid) {
+        int totalsum=0;
+        for(int i=0;i<grid.size();i++){
+            totalsum=totalsum + binarysearch(grid[i]);
+        }
+        return totalsum;
+    }
+
+int binarysearch(vector<int> arr){
+        int low=0, high=arr.size()-1;
+        while(low<=high){
+            int mid=(low+high)/2;
+            if(arr[mid]<0){
+                if(mid==0 || arr[mid-1]>=0){
+                    return (arr.size()-mid);
+                }
+                else{
+                    high=mid-1;
+                }
+            }
+            else{
+                low=mid+1;
+            }
+        }
+        return 0;
+}
+};
