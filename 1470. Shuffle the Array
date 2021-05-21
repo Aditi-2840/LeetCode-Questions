@@ -1,0 +1,18 @@
+class Solution {
+    public int[] shuffle(int[] nums, int n) {
+        int m=nums.length;
+        int arr[]=new int[m];
+        int x=0,y=n,j=0;
+        while(j<m && x<m && y<m){
+            if(j%2==0){
+                arr[j]=nums[x];
+                j++;x++;
+            }
+            else{
+                arr[j]=nums[y];
+                j++; y++;
+            }
+        }
+        return arr;
+    }
+}
