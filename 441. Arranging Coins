@@ -1,0 +1,13 @@
+class Solution {
+public:
+    int arrangeCoins(int n) {
+        int k=n,i;
+        for(i=1;i<=n;i++){
+            k-=i;
+            if(k<0){
+                break;
+            }
+        }
+        return i-1;
+    }
+};
